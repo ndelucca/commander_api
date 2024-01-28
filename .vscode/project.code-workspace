@@ -1,0 +1,22 @@
+{
+    "folders": [
+        {
+            "path": ".."
+        }
+    ],
+    "settings": {
+        "python.analysis.typeCheckingMode": "basic",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "always"
+        },
+        "files.exclude": {
+            "**/__pycache__": true,
+            "**/.pytest_cache": true
+        },
+        "search.exclude": {
+            "**/__pycache__": true,
+            "**/.pytest_cache": true
+        }
+    }
+}
