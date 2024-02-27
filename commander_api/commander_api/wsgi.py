@@ -14,7 +14,7 @@ import sys
 
 from django.core.wsgi import get_wsgi_application
 
-path = "/home/ndelucca/dev/commander_api"
+path = "/home/ndelucca/dev/commander_api/commander_api"
 if path not in sys.path:
     sys.path.insert(0, path)
 
