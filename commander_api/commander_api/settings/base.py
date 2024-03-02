@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 from pathlib import Path
 
-from commander_api.settings.database import DB_HOST, DB_NAME, DB_PASSWORD, DB_USER
+from commander_api.settings.database import DB
 from commander_api.settings.rest_framework import *
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -61,15 +61,7 @@ ASGI_APPLICATION = "commander_api.asgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": DB_NAME,
-        "USER": DB_USER,
-        "PASSWORD": DB_PASSWORD,
-        "HOST": DB_HOST,
-    }
-}
+DATABASES = {"default": DB}
 
 
 # Password validation

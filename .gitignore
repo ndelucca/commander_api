@@ -1,6 +1,6 @@
 secrets
 *__pycache__*
 .venv
-commander_api/commander_api/settings/database.py
+commander_api/commander_api/settings/database*.py
 commander_api/commander_api/settings/secret.py
 .envrc
