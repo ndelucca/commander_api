@@ -1,12 +1,21 @@
 {% extends "admin/base.html" %}
-
-{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
-
+{% load i18n %}
+{% load static %}
+{% block title %}
+    {% if subtitle %}{{ subtitle }} |{% endif %}
+    {{ title }} | {{ site_title|default:_("Administration") }}
+{% endblock title %}
+{% block dark-mode-vars %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/admin_overrides.css" %}">
+{% endblock dark-mode-vars %}
 {% block branding %}
-<div id="site-name"><a href="{% url 'admin:index' %}">COSO</a></div>
-{% if user.is_anonymous %}
-  {% include "admin/color_theme_toggle.html" %}
-{% endif %}
-{% endblock %}
-
-{% block nav-global %}{% endblock %}
+    <div id="site-name">
+        <p>{% trans "Speak friend, and enter..." %}</p>
+    </div>
+    {% if user.is_anonymous %}
+        {% include "admin/color_theme_toggle.html" %}
+    {% endif %}
+{% endblock branding %}
+{% block nav-global %}
+{% endblock nav-global %}

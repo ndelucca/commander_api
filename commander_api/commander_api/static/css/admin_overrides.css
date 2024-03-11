@@ -1,0 +1,6 @@
+html[data-theme="dark"],html[data-theme="light"], :root{
+    --primary: #6b2200;
+    --header-bg: var(--primary);
+    --button-bg: var(--primary);
+    --button-hover-bg: #491801;
+}
