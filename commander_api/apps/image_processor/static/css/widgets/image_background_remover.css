@@ -1,7 +1,7 @@
 .background-remover-widget {
   width: 100%;
-  min-height: 500px;
-  background-color: #f6f6f6ff;
+  min-height: 200px;
+  background-color: #333;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -13,13 +13,18 @@
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
-  border: 1px #222 dashed;
+  border: 2px #888 dashed;
   margin: 10px;
   padding: 10px;
+  max-height: 400px;
 }
-
-.background-remover-widget.highlight {
-  border: 1px #aa7722 dashed;
+.background-remover-widget .loaded-image,
+.background-remover-widget .loaded-image .widget-label {
+  cursor: pointer;
+}
+.background-remover-widget .highlight,
+.background-remover-widget .loaded-image:hover {
+  border: 2px #aa7722 dashed;
 }
 
 .background-remover-widget .widget-image {

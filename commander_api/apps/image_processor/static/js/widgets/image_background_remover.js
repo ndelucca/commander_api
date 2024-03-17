@@ -5,10 +5,17 @@ class ImageBackgroundRemover extends ImageFileUpload {
   constructor({ element, form }) {
     super({ element });
     this.form = form;
-    this.image = this.container.querySelector(".loaded-image .widget-image");
+    this.loaded_image = this.container.querySelector(".loaded-image");
+    this.image = this.loaded_image.querySelector(".widget-image");
     this.image_modified = this.container.querySelector(
       ".modified-image .widget-image"
     );
+  }
+  highlight() {
+    this.loaded_image.classList.add("highlight");
+  }
+  unhighlight() {
+    this.loaded_image.classList.remove("highlight");
   }
   handleFile(file) {
     const reader = new FileReader();
@@ -20,21 +27,24 @@ class ImageBackgroundRemover extends ImageFileUpload {
   }
   previewFile(file) {
     this.image.src = file;
-    this.image_modified.src = file;
   }
   submitForm() {
-    console.log("Removing image background...");
-    console.log(`${this.form} Removing image background...`);
-    this.form.submit();
-    // const formdata = new FormData(this.form);
+    this.image_modified.src = "/static/img/loading.svg";
 
-    // fetch("/", {
-    //   method: "POST",
-    //   body: formdata,
-    // })
-    //   .then((response) => response.json())
-    //   .catch((error) => console.error("Error:", error))
-    //   .then((response) => console.log("Success:", response));
+    const formdata = new FormData(this.form);
+
+    fetch("", {
+      method: "POST",
+      body: formdata,
+    })
+      .then((response) => response.json())
+      .catch((error) => {
+        this.image_modified.src = "";
+        console.error("Error:", error);
+      })
+      .then((response) => {
+        this.image_modified.src = response.image_file;
+      });
   }
 }
 for (const form of document.forms) {
