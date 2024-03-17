@@ -1,0 +1,9 @@
+<form id="{{ form.id }}"
+      class="mb-3"
+      method="{{ form.method | default:"post" }}"
+      action="{{ form.action | default:"" }}">
+    {% csrf_token %}
+    <div class="form-group">
+        {% for field in form %}{{ field }}{% endfor %}
+    </div>
+</form>

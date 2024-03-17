@@ -1,0 +1,62 @@
+{% load i18n static %}
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}"
+      dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr,auto' }}">
+    <head>
+        <title>
+            {% block title %}
+            {% endblock title %}
+        </title>
+        <meta name="description"
+              content="{{ meta_description|default:_("ndelucca django app") }}">
+        <meta name="keywords" content="ndelucca, Django">
+        <meta name="author" content="ndelucca">
+        {% block extrastyle %}
+        {% endblock extrastyle %}
+        {% block extrahead %}
+        {% endblock extrahead %}
+        {% block blockbots %}
+            <meta name="robots" content="NONE,NOARCHIVE">
+        {% endblock blockbots %}
+        {% block media %}
+            {% if form %}{{ form.media }}{% endif %}
+        {% endblock media %}
+    </head>
+    <body class="{% block bodyclass %}{% endblock bodyclass %}">
+        <div id="container" class="container-fluid">
+            <header id="header" class="row">
+                {% block header %}
+                {% endblock header %}
+            </header>
+            <main tabindex="-1" class="row">
+                {% block messages %}
+                    {% if messages %}
+                        <ul class="messagelist">
+                            {% for message in messages %}
+                                <li {% if message.tags %}class="{{ message.tags }}"{% endif %}>{{ message|capfirst }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endblock messages %}
+                <div id="content" class="col">
+                    {% block content_title %}
+                    {% endblock content_title %}
+                    {% block content_subtitle %}
+                        {% if subtitle %}<h2>{{ subtitle }}</h2>{% endif %}
+                    {% endblock content_subtitle %}
+                    {% block content %}
+                        {{ content }}
+                    {% endblock content %}
+                    {% block sidebar %}
+                    {% endblock sidebar %}
+                    <br class="clear">
+                </div>
+            </main>
+            <footer id="footer" class="row">
+                {% block footer %}
+                {% endblock footer %}
+            </footer>
+        </div>
+    </body>
+</html>
