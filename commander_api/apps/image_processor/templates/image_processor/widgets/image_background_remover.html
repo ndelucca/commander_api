@@ -1,15 +1,24 @@
 {% load i18n %}
 <div class="background-remover-widget">
-    <label class="background-remover-label" for="{{ widget.attrs.id }}">
-        <img class="background-remover-image"
+    <div class="loaded-image">
+        <label class="widget-label" for="{{ widget.attrs.id }}">
+            <img class="widget-image"
+                 alt="{% trans "Original" %}"
+                 width="100%"
+                 height="100%"
+                 src="" />
+        </label>
+        <input class="widget-input"
+               type="{{ widget.type }}"
+               name="{{ widget.name }}"
+               id="{{ widget.attrs.id }}"
+               {% include "django/forms/widgets/attrs.html" %}>
+    </div>
+    <div class="modified-image">
+        <img class="widget-image"
              alt="{% trans "Preview" %}"
              width="100%"
              height="100%"
              src="" />
-    </label>
-    <input class="background-remover-input"
-           type="{{ widget.type }}"
-           name="{{ widget.name }}"
-           id="{{ widget.attrs.id }}"
-           {% include "django/forms/widgets/attrs.html" %}>
+    </div>
 </div>

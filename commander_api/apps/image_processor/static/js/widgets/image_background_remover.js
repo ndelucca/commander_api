@@ -1,77 +1,48 @@
-class ImageBackgroundRemover {
-  constructor({ element }) {
-    this.container = element;
-    this.image = this.container.querySelector(".background-remover-image");
-    this.input = this.container.querySelector(".background-remover-input");
-    this.label = this.container.querySelector(".background-remover-label");
-  }
+import { ImageFileUpload } from "/static/js/widgets/image_file_upload.js";
+export { ImageBackgroundRemover };
 
-  highlight() {
-    this.container.classList.add("highlight");
+class ImageBackgroundRemover extends ImageFileUpload {
+  constructor({ element, form }) {
+    super({ element });
+    this.form = form;
+    this.image = this.container.querySelector(".loaded-image .widget-image");
+    this.image_modified = this.container.querySelector(
+      ".modified-image .widget-image"
+    );
   }
-  unhighlight() {
-    this.container.classList.remove("highlight");
-  }
-
   handleFile(file) {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       this.previewFile(reader.result);
-      this.uploadFile(reader.result);
+      this.submitForm();
     };
   }
-  handleFilesDropped(event) {
-    const dt = event.dataTransfer;
-    const [file] = dt.files;
-    this.handleFile(file);
-  }
-  handleFilesInput(event) {
-    const [file] = this.input.files;
-    this.handleFile(file);
-  }
-
   previewFile(file) {
     this.image.src = file;
+    this.image_modified.src = file;
   }
+  submitForm() {
+    console.log("Removing image background...");
+    console.log(`${this.form} Removing image background...`);
+    this.form.submit();
+    // const formdata = new FormData(this.form);
 
-  uploadFile(file) {
-    console.log("work in progress...");
-  }
-
-  load() {
-    ["dragenter", "dragover", "dragleave", "drop"].forEach((ev) => {
-      this.container.addEventListener(
-        ev,
-        (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-        },
-        false
-      );
-    });
-    ["dragenter", "dragover"].forEach((ev) => {
-      this.container.addEventListener(ev, this.highlight.bind(this), false);
-    });
-    ["dragleave", "drop"].forEach((ev) => {
-      this.container.addEventListener(ev, this.unhighlight.bind(this), false);
-    });
-    this.container.addEventListener(
-      "drop",
-      this.handleFilesDropped.bind(this),
-      false
-    );
-    this.container.addEventListener(
-      "change",
-      this.handleFilesInput.bind(this),
-      false
-    );
+    // fetch("/", {
+    //   method: "POST",
+    //   body: formdata,
+    // })
+    //   .then((response) => response.json())
+    //   .catch((error) => console.error("Error:", error))
+    //   .then((response) => console.log("Success:", response));
   }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".background-remover-widget").forEach((widget) => {
-    const img_bg_remover = new ImageBackgroundRemover({ element: widget });
+for (const form of document.forms) {
+  form.querySelectorAll(".background-remover-widget").forEach((widget) => {
+    const img_bg_remover = new ImageBackgroundRemover({
+      element: widget,
+      form: form,
+    });
     img_bg_remover.load();
   });
-});
+}
