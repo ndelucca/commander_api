@@ -433,20 +433,6 @@ django = ">=3.2.4"
 sqlparse = ">=0.2"
 
 [[package]]
-name = "djangorestframework"
-version = "3.15.0"
-description = "Web APIs for Django, made easy."
-optional = false
-python-versions = ">=3.6"
-files = [
-    {file = "djangorestframework-3.15.0-py3-none-any.whl", hash = "sha256:5fa616048a7ec287fdaab3148aa5151efb73f7f8be1e23a9d18484e61e672695"},
-    {file = "djangorestframework-3.15.0.tar.gz", hash = "sha256:3f4a263012e1b263bf49a4907eb4cfe14de840a09b1ba64596d01a9c54835919"},
-]
-
-[package.dependencies]
-django = ">=3.0"
-
-[[package]]
 name = "djlint"
 version = "1.34.1"
 description = "HTML Template Linter and Formatter"
@@ -470,29 +456,6 @@ PyYAML = ">=6.0,<7.0"
 regex = ">=2023.0.0,<2024.0.0"
 tomli = {version = ">=2.0.1,<3.0.0", markers = "python_version < \"3.11\""}
 tqdm = ">=4.62.2,<5.0.0"
-
-[[package]]
-name = "drf-spectacular"
-version = "0.27.1"
-description = "Sane and flexible OpenAPI 3 schema generation for Django REST framework"
-optional = false
-python-versions = ">=3.6"
-files = [
-    {file = "drf-spectacular-0.27.1.tar.gz", hash = "sha256:452e0cff3c12ee057b897508a077562967b9e62717992eeec10e62dbbc7b5a33"},
-    {file = "drf_spectacular-0.27.1-py3-none-any.whl", hash = "sha256:0a4cada4b7136a0bf17233476c066c511a048bc6a485ae2140326ac7ba4003b2"},
-]
-
-[package.dependencies]
-Django = ">=2.2"
-djangorestframework = ">=3.10.3"
-inflection = ">=0.3.1"
-jsonschema = ">=2.6.0"
-PyYAML = ">=5.1"
-uritemplate = ">=2.0.0"
-
-[package.extras]
-offline = ["drf-spectacular-sidecar"]
-sidecar = ["drf-spectacular-sidecar"]
 
 [[package]]
 name = "editorconfig"
@@ -636,17 +599,6 @@ files = [
 [package.extras]
 mypy = ["click (>=6.0)", "mypy (==0.812)", "twisted (>=16.4.0)"]
 scripts = ["click (>=6.0)", "twisted (>=16.4.0)"]
-
-[[package]]
-name = "inflection"
-version = "0.5.1"
-description = "A port of Ruby on Rails inflector to Python"
-optional = false
-python-versions = ">=3.5"
-files = [
-    {file = "inflection-0.5.1-py2.py3-none-any.whl", hash = "sha256:f38b2b640938a4f35ade69ac3d053042959b62a0f1076a5bbaa1b9526605a8a2"},
-    {file = "inflection-0.5.1.tar.gz", hash = "sha256:1a29730d366e996aaacffb2f1f1cb9593dc38e2ddd30c91250c6dde09ea9b417"},
-]
 
 [[package]]
 name = "iniconfig"
@@ -1901,17 +1853,6 @@ files = [
 ]
 
 [[package]]
-name = "uritemplate"
-version = "4.1.1"
-description = "Implementation of RFC 6570 URI Templates"
-optional = false
-python-versions = ">=3.6"
-files = [
-    {file = "uritemplate-4.1.1-py2.py3-none-any.whl", hash = "sha256:830c08b8d99bdd312ea4ead05994a38e8936266f84b9a7878232db50b044e02e"},
-    {file = "uritemplate-4.1.1.tar.gz", hash = "sha256:4346edfc5c3b79f694bccd6d6099a322bbeb628dbf2cd86eea55a456ce5124f0"},
-]
-
-[[package]]
 name = "urllib3"
 version = "2.2.1"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
@@ -1984,4 +1925,4 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.11"
-content-hash = "cb2c02dac04e4f7cf8053024e47e526fe6aafa1193c87f11080c50a2e35c5e3e"
+content-hash = "51a919213c88f9101d618bc15c85738bd050c706759e63ed317691f63ed78804"

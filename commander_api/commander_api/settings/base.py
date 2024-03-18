@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "apps.timekeeper",
+    # "apps.timekeeper",
     "apps.image_processor",
 ]
 

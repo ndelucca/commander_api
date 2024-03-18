@@ -3,7 +3,6 @@ import base64
 from django.http import HttpResponse, JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic.edit import FormView
-from PIL import Image
 from rembg import remove
 
 from ..forms.background_remover import BackgroundRemoverForm
