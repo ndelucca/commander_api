@@ -10,6 +10,9 @@ class ImageBackgroundRemover extends ImageFileUpload {
     this.image_modified = this.container.querySelector(
       ".modified-image .widget-image"
     );
+    this.image_modified_link = this.container.querySelector(
+      ".modified-image-link"
+    );
   }
   highlight() {
     this.loaded_image.classList.add("highlight");
@@ -43,6 +46,8 @@ class ImageBackgroundRemover extends ImageFileUpload {
         console.error("Error:", error);
       })
       .then((response) => {
+        this.image_modified_link.download = "reduced_image.png";
+        this.image_modified_link.href = response.image_file;
         this.image_modified.src = response.image_file;
       });
   }
