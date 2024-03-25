@@ -1,0 +1,29 @@
+.image-cropper-widget {
+  width: 100%;
+  min-height: 500px;
+  background-color: #f6f6f6ff;
+  border: 1px #222 dashed;
+}
+
+.image-cropper-widget.highlight {
+  border: 1px #aa7722 dashed;
+}
+
+.image-cropper-widget .widget-image {
+  object-fit: contain;
+}
+
+.image-cropper-widget .widget-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  height: 500px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.image-cropper-widget .widget-input {
+  display: none;
+}
