@@ -5,6 +5,8 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import FormView
 from rembg import remove
 
+from ..components.component1 import Component1
+from ..components.component2 import Component2
 from ..forms.background_remover import BackgroundRemoverForm
 
 
@@ -25,3 +27,9 @@ class BackgroundRemover(FormView):
         base64_img_str = f"data:image/png;base64,{base64_img.decode('utf-8')}"
 
         return JsonResponse({"image_file": base64_img_str})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["component1"] = Component1("Component1")
+        context["component2"] = Component2("Component2")
+        return context
