@@ -20,6 +20,11 @@
         "search.exclude": {
             "**/__pycache__": true,
             "**/.pytest_cache": true
+        },
+        "[python]": {
+            "editor.formatOnType": true,
+            "editor.defaultFormatter": "charliermarsh.ruff"
+
         }
     },
     "extensions": {

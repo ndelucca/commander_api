@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 
 from commander_api.settings.database import DB_HOST, DB_NAME, DB_PASSWORD, DB_USER
-from commander_api.settings.rest_framework import REST_FRAMEWORK, SPECTACULAR_SETTINGS
 from commander_api.settings.secret import SECRET_KEY
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +25,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # "apps.timekeeper",
+    "apps.timekeeper",
     "apps.image_processor",
 ]
 

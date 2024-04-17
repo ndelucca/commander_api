@@ -1,11 +1,7 @@
 from django.urls import path
 
-from .views.crud import EventRecordDetailView
+from .api.event_record import event_record_api
 
 urlpatterns = [
-    path(
-        "eventrecord/<int:id>/",
-        EventRecordDetailView.as_view(),
-        name="eventrecord-detail",
-    ),
+    path("event_record/", event_record_api.urls),
 ]
